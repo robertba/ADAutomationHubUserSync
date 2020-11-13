@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1350.4,1929.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1356,1856</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -62,43 +62,43 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Check if user exists, otherwise add or update if neccesary. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1330.4,1869.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Check if user exists, otherwise add or update if neccesary. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1336,1756" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Switch x:TypeArguments="x:Int32" DisplayName="Switch__1=Create, 2=Update, 3=Deactivate" Expression="[in_TransactionNumber]" sap:VirtualizedContainerService.HintSize="1288.8,1745.6" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:Int32" DisplayName="Switch__1=Create, 2=Update, 3=Deactivate" Expression="[in_TransactionNumber]" sap:VirtualizedContainerService.HintSize="1294,1633" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Warn" Message="[&quot;Default case invoked. Please check that TransactionData only has three items in its list. (Create, Update, Deactivate) &quot;]" />
       </Switch.Default>
-      <Sequence x:Key="1" DisplayName="Add user to AH " sap:VirtualizedContainerService.HintSize="1248.8,1419.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence x:Key="1" DisplayName="Add user to AH " sap:VirtualizedContainerService.HintSize="1254,1405" sap2010:WorkflowViewState.IdRef="Sequence_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <If Condition="[in_TransactionItem.Count = 0]" DisplayName="If no users in add list" sap:VirtualizedContainerService.HintSize="1207.2,1326.4" sap2010:WorkflowViewState.IdRef="If_6">
+        <If Condition="[in_TransactionItem.Count = 0]" DisplayName="If no users in add list" sap:VirtualizedContainerService.HintSize="1212,1313" sap2010:WorkflowViewState.IdRef="If_6">
           <If.Then>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;No users in 'Create' list.&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;No users in 'Create' list.&quot;]" />
           </If.Then>
           <If.Else>
-            <Sequence sap:VirtualizedContainerService.HintSize="829.6,1176.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <Sequence sap:VirtualizedContainerService.HintSize="833,1165" sap2010:WorkflowViewState.IdRef="Sequence_16">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage sap:VirtualizedContainerService.HintSize="788,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iterating through 'Create' list.&quot;]" />
-              <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="788,951.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_TransactionItem]">
+              <ui:LogMessage sap:VirtualizedContainerService.HintSize="791,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iterating through 'Create' list.&quot;]" />
+              <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="791,942" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_TransactionItem]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:String)">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="user_to_add" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="752.8,816.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="755,808" sap2010:WorkflowViewState.IdRef="Sequence_6">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Int32" Name="int_Status" />
                         <Variable x:TypeArguments="x:String" Name="str_Output" />
@@ -109,7 +109,7 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API_Create_User workflow" sap:VirtualizedContainerService.HintSize="711.2,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="API_Calls\API_Create_User.xaml">
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API_Create_User workflow" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="API_Calls\API_Create_User.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dict_User">[user_to_add]</InArgument>
@@ -117,22 +117,22 @@
                           <OutArgument x:TypeArguments="x:String" x:Key="out_Output">[str_Output]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
-                      <If Condition="[int_Status.Equals(200)]" DisplayName="If user created successfully.." sap:VirtualizedContainerService.HintSize="711.2,242.4" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If Condition="[int_Status.Equals(200)]" DisplayName="If user created successfully.." sap:VirtualizedContainerService.HintSize="713,239" sap2010:WorkflowViewState.IdRef="If_1">
                         <If.Then>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;User holding e-mail: &quot; + user_to_add(&quot;user_email&quot;).ToString + &quot; has been added successfully.&quot;]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;User holding e-mail: &quot; + user_to_add(&quot;user_email&quot;).ToString + &quot; has been added successfully.&quot;]" />
                         </If.Then>
                         <If.Else>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;User holding e-mail: &quot; + user_to_add(&quot;user_email&quot;).ToString + &quot; has not been added. Error code and body: &quot; + int_Status.ToString + &quot; - &quot; + str_Output]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;User holding e-mail: &quot; + user_to_add(&quot;user_email&quot;).ToString + &quot; has not been added. Error code and body: &quot; + int_Status.ToString + &quot; - &quot; + str_Output]" />
                         </If.Else>
                       </If>
-                      <Sequence DisplayName="Update SQL" sap:VirtualizedContainerService.HintSize="711.2,313.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="Update SQL" sap:VirtualizedContainerService.HintSize="713,310" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Passing through update SQL. &quot;]" />
-                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Insert User into DB" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="DBFunctions\AddUser.xaml">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Passing through update SQL. &quot;]" />
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Insert User into DB" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="DBFunctions\AddUser.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="ConnString">[String.concat("URI=file:", Path.Combine(Environment.CurrentDirectory, "Data\users.db") )]</InArgument>
                             <OutArgument x:TypeArguments="x:Int32" x:Key="RecordsUpdated" />
@@ -154,32 +154,32 @@
           </If.Else>
         </If>
       </Sequence>
-      <Sequence x:Key="2" DisplayName="Update users" sap:VirtualizedContainerService.HintSize="1248.8,1419.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
+      <Sequence x:Key="2" DisplayName="Update users" sap:VirtualizedContainerService.HintSize="1254,1405" sap2010:WorkflowViewState.IdRef="Sequence_10">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <If Condition="[in_TransactionItem.Count = 0]" sap:VirtualizedContainerService.HintSize="1207.2,1326.4" sap2010:WorkflowViewState.IdRef="If_5">
+        <If Condition="[in_TransactionItem.Count = 0]" sap:VirtualizedContainerService.HintSize="1212,1313" sap2010:WorkflowViewState.IdRef="If_5">
           <If.Then>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;No users in 'Update' list.&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;No users in 'Update' list.&quot;]" />
           </If.Then>
           <If.Else>
-            <Sequence sap:VirtualizedContainerService.HintSize="829.6,1176.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
+            <Sequence sap:VirtualizedContainerService.HintSize="833,1165" sap2010:WorkflowViewState.IdRef="Sequence_17">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage sap:VirtualizedContainerService.HintSize="788,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Iterating through 'Update' list.&quot;]" />
-              <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="788,951.2" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_TransactionItem]">
+              <ui:LogMessage sap:VirtualizedContainerService.HintSize="791,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Iterating through 'Update' list.&quot;]" />
+              <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="791,942" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_TransactionItem]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:String)">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="user_to_update" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="752.8,816.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="755,808" sap2010:WorkflowViewState.IdRef="Sequence_9">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Int32" Name="int_Status" />
                         <Variable x:TypeArguments="x:String" Name="str_Output" />
@@ -190,7 +190,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API_Edit_User workflow" sap:VirtualizedContainerService.HintSize="711.2,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="API_Calls\API_Edit_User.xaml">
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API_Edit_User workflow" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="API_Calls\API_Edit_User.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dict_User">[user_to_update]</InArgument>
@@ -198,22 +198,22 @@
                           <OutArgument x:TypeArguments="x:String" x:Key="out_Output">[str_Output]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
-                      <If Condition="[int_Status.Equals(200)]" DisplayName="If user created successfully.." sap:VirtualizedContainerService.HintSize="711.2,242.4" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If Condition="[int_Status.Equals(200)]" DisplayName="If user created successfully.." sap:VirtualizedContainerService.HintSize="713,239" sap2010:WorkflowViewState.IdRef="If_2">
                         <If.Then>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;User holding e-mail: &quot; + user_to_update(&quot;user_email&quot;).ToString + &quot; has been updated successfully.&quot;]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;User holding e-mail: &quot; + user_to_update(&quot;user_email&quot;).ToString + &quot; has been updated successfully.&quot;]" />
                         </If.Then>
                         <If.Else>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn" Message="[&quot;User holding e-mail: &quot; + user_to_update(&quot;user_email&quot;).ToString + &quot; has not been updated. Error code and body: &quot; + int_Status.ToString + &quot; - &quot; + str_Output]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Warn" Message="[&quot;User holding e-mail: &quot; + user_to_update(&quot;user_email&quot;).ToString + &quot; has not been updated. Error code and body: &quot; + int_Status.ToString + &quot; - &quot; + str_Output]" />
                         </If.Else>
                       </If>
-                      <Sequence DisplayName="Update SQL" sap:VirtualizedContainerService.HintSize="711.2,313.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <Sequence DisplayName="Update SQL" sap:VirtualizedContainerService.HintSize="713,310" sap2010:WorkflowViewState.IdRef="Sequence_8">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Passing through update SQL. &quot;]" />
-                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke UpdateUser workflow" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DBFunctions\UpdateUser.xaml">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Passing through update SQL. &quot;]" />
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke UpdateUser workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="DBFunctions\UpdateUser.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="ConnString">[String.concat("URI=file:", Path.Combine(Environment.CurrentDirectory, "Data\users.db" ) )]</InArgument>
                             <OutArgument x:TypeArguments="x:Int32" x:Key="RecordsUpdated" />
@@ -235,14 +235,14 @@
           </If.Else>
         </If>
       </Sequence>
-      <Sequence x:Key="3" DisplayName="Deactivte users" sap:VirtualizedContainerService.HintSize="1248.8,1512" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <Sequence x:Key="3" DisplayName="Deactivte users" sap:VirtualizedContainerService.HintSize="1254,1702" sap2010:WorkflowViewState.IdRef="Sequence_15">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <If Condition="[in_TransactionItem.Count = 0]" sap:VirtualizedContainerService.HintSize="1207.2,1419.2" sap2010:WorkflowViewState.IdRef="If_4">
+        <If Condition="[in_TransactionItem.Count = 0]" sap:VirtualizedContainerService.HintSize="1212,1610" sap2010:WorkflowViewState.IdRef="If_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -250,23 +250,23 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;No users in 'Deactivate' list.&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;No users in 'Deactivate' list.&quot;]" />
           </If.Then>
           <If.Else>
-            <Sequence sap:VirtualizedContainerService.HintSize="829.6,1269.6" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <Sequence sap:VirtualizedContainerService.HintSize="833,1462" sap2010:WorkflowViewState.IdRef="Sequence_18">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage sap:VirtualizedContainerService.HintSize="788,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Iterating through 'Deactivate' list.&quot;]" />
-              <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="788,1044" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_TransactionItem]">
+              <ui:LogMessage sap:VirtualizedContainerService.HintSize="791,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Iterating through 'Deactivate' list.&quot;]" />
+              <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="791,1239" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_TransactionItem]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:String)">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="user_to_deactivate" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="752.8,909.6" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="755,1105" sap2010:WorkflowViewState.IdRef="Sequence_14">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Int32" Name="int_Status" />
                         <Variable x:TypeArguments="x:String" Name="str_Output" />
@@ -276,15 +276,15 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="711.2,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="713,257" sap2010:WorkflowViewState.IdRef="CommentOut_9">
                         <ui:CommentOut.Body>
-                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,180.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_25">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API_Create_User workflow" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="API_Calls\API_Create_User.xaml">
+                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API_Create_User workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="API_Calls\API_Create_User.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
                                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dict_User">[user_to_deactivate]</InArgument>
@@ -294,14 +294,8 @@
                             </ui:InvokeWorkflowFile>
                           </Sequence>
                         </ui:CommentOut.Body>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
                       </ui:CommentOut>
-                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API_Deactivate_User workflow" sap:VirtualizedContainerService.HintSize="711.2,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="API_Calls\API_Deactivate_User.xaml">
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke API_Deactivate_User workflow" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="API_Calls\API_Deactivate_User.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dict_User">[user_to_deactivate]</InArgument>
@@ -309,22 +303,22 @@
                           <OutArgument x:TypeArguments="x:String" x:Key="out_Output">[str_Output]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
-                      <If Condition="[int_Status.Equals(200)]" DisplayName="If user created successfully.." sap:VirtualizedContainerService.HintSize="711.2,242.4" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If Condition="[int_Status.Equals(200)]" DisplayName="If user created successfully.." sap:VirtualizedContainerService.HintSize="713,239" sap2010:WorkflowViewState.IdRef="If_3">
                         <If.Then>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;User holding e-mail: &quot; + user_to_deactivate(&quot;user_email&quot;).ToString + &quot; has been deactivated successfully.&quot;]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;User holding e-mail: &quot; + user_to_deactivate(&quot;user_email&quot;).ToString + &quot; has been deactivated successfully.&quot;]" />
                         </If.Then>
                         <If.Else>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Warn" Message="[&quot;User holding e-mail: &quot; + user_to_deactivate(&quot;user_email&quot;).ToString + &quot; has not been deactivated. Error code and body: &quot; + int_Status.ToString + &quot; - &quot; + str_Output]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Warn" Message="[&quot;User holding e-mail: &quot; + user_to_deactivate(&quot;user_email&quot;).ToString + &quot; has not been deactivated. Error code and body: &quot; + int_Status.ToString + &quot; - &quot; + str_Output]" />
                         </If.Else>
                       </If>
-                      <Sequence DisplayName="Update SQL" sap:VirtualizedContainerService.HintSize="711.2,313.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <Sequence DisplayName="Update SQL" sap:VirtualizedContainerService.HintSize="713,310" sap2010:WorkflowViewState.IdRef="Sequence_13">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Passing through update SQL. &quot;]" />
-                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DeleteUser workflow" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="DBFunctions\DeleteUser.xaml">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Passing through update SQL. &quot;]" />
+                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DeleteUser workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="DBFunctions\DeleteUser.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="ConnString">[String.concat("URI=file:", Path.Combine(Environment.CurrentDirectory, "Data\users.db") )]</InArgument>
                             <OutArgument x:TypeArguments="x:Int32" x:Key="RecordsUpdated" />

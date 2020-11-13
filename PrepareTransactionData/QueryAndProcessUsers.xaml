@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1193.6,4631.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1741,6549</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="27">
@@ -63,7 +63,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AD Query, Comp with Database" sap:VirtualizedContainerService.HintSize="1173.6,4491.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="AD Query, Comp with Database" sap:VirtualizedContainerService.HintSize="1721,6489" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dictADUser" />
       <Variable x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" Name="lstUsersToCreate" />
@@ -77,13 +77,14 @@
       <Variable x:TypeArguments="x:Boolean" Name="bUsersSame" />
       <Variable x:TypeArguments="s:String[]" Name="listUsers" />
       <Variable x:TypeArguments="x:Boolean" Name="bUserFoundInDB" />
+      <Variable x:TypeArguments="s:String[]" Name="asLocations" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="1132,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+    <Assign sap:VirtualizedContainerService.HintSize="1679,60" sap2010:WorkflowViewState.IdRef="Assign_7">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[sConnString]</OutArgument>
       </Assign.To>
@@ -91,21 +92,21 @@
         <InArgument x:TypeArguments="x:String">[String.concat("URI=file:", Path.Combine(Environment.CurrentDirectory, "Data\users.db") )]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetRunNumber workflow" sap:VirtualizedContainerService.HintSize="1132,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DBFunctions\GetRunNumber.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetRunNumber workflow" sap:VirtualizedContainerService.HintSize="1679,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DBFunctions\GetRunNumber.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:Int32" x:Key="RunNumber">[nRunNumber]</OutArgument>
         <InArgument x:TypeArguments="x:String" x:Key="ConnString">[sConnString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1132,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Run Number: &quot; + nRunNumber.ToString]" />
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SetRunNumber workflow" sap:VirtualizedContainerService.HintSize="1132,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DBFunctions\SetRunNumber.xaml">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1679,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Run Number: &quot; + nRunNumber.ToString]" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SetRunNumber workflow" sap:VirtualizedContainerService.HintSize="1679,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DBFunctions\SetRunNumber.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:Int32" x:Key="RunNumber">[nRunNumber + 1]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="ConnString">[sConnString]</InArgument>
         <OutArgument x:TypeArguments="x:Int32" x:Key="RecordsUpdated">[nRecordsUpdated]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <If Condition="[nRecordsUpdated &lt;&gt; 1]" DisplayName="If can't update run number exit" sap:VirtualizedContainerService.HintSize="1132,52.8" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[nRecordsUpdated &lt;&gt; 1]" DisplayName="If can't update run number exit" sap:VirtualizedContainerService.HintSize="1679,51" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -113,26 +114,26 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Couldn't update the run number.&quot;]" />
-          <Throw Exception="[new System.Exception(&quot;Couldn't update the run number.&quot;)]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Couldn't update the run number.&quot;]" />
+          <Throw Exception="[new System.Exception(&quot;Couldn't update the run number.&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
         </Sequence>
       </If.Then>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1132,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Updated run number in database: &quot; + (nRunNumber + 1).ToString]" />
-    <Sequence DisplayName="Init Lists" sap:VirtualizedContainerService.HintSize="1132,68.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1679,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Updated run number in database: &quot; + (nRunNumber + 1).ToString]" />
+    <Sequence DisplayName="Init Lists" sap:VirtualizedContainerService.HintSize="1679,66" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
         <Assign.To>
           <OutArgument x:TypeArguments="scg:List(scg:List(scg:Dictionary(x:String, x:String)))">[out_lstCRUD]</OutArgument>
         </Assign.To>
@@ -140,7 +141,7 @@
           <InArgument x:TypeArguments="scg:List(scg:List(scg:Dictionary(x:String, x:String)))">[new List(Of List(Of Dictionary(Of String, String)))]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign DisplayName="Initialize create user data structure" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign DisplayName="Initialize create user data structure" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
         <Assign.To>
           <OutArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[lstUsersToCreate]</OutArgument>
         </Assign.To>
@@ -148,7 +149,7 @@
           <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[new List(Of Dictionary(Of String, String))]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign DisplayName="Initialize Update user data structure" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign DisplayName="Initialize Update user data structure" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
         <Assign.To>
           <OutArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[lstUsersToUpdate]</OutArgument>
         </Assign.To>
@@ -156,7 +157,7 @@
           <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[new List(Of Dictionary(Of String, String))]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign DisplayName="Initialize Delete user data structure" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <Assign DisplayName="Initialize Delete user data structure" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
         <Assign.To>
           <OutArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[lstUsersToDelete]</OutArgument>
         </Assign.To>
@@ -165,232 +166,307 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <p:ActiveDirectoryScope ActiveDirectoryServer="{x:Null}" Password="{x:Null}" Username="{x:Null}" DisplayName="Active Directory Scope" sap:VirtualizedContainerService.HintSize="1132,2700.8" sap2010:WorkflowViewState.IdRef="ActiveDirectoryScope_1">
-      <p:ActiveDirectoryScope.Body>
-        <ActivityAction x:TypeArguments="uas:ActiveDirectoryService">
+    <Assign DisplayName="Get locations from pipe delimited settings into an array" sap:VirtualizedContainerService.HintSize="1679,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[asLocations]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[in_config("ADLocations").ToString.Split("|"C)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Loop through locations array" sap:VirtualizedContainerService.HintSize="1679,4611" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[asLocations]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="uas:ActiveDirectoryService" Name="ActiveDirectoryScopeConnectionName" />
+            <DelegateInArgument x:TypeArguments="x:String" Name="sADLocation" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1098.4,2614.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1643,4477" sap2010:WorkflowViewState.IdRef="Sequence_30">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1056.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Querying AD using &quot; + in_config(&quot;LDAPFilter&quot;).ToString + &quot; at location: &quot; + in_config(&quot;ADLocation&quot;).ToString]" />
-            <p:GetObjectsByLDAPFilter DisplayName="AD Get Users by LDAP Filter" sap:VirtualizedContainerService.HintSize="1056.8,22.4" sap2010:WorkflowViewState.IdRef="GetObjectsByLDAPFilter_1" LDAPFilter="[in_config(&quot;LDAPFilter&quot;).ToString]" Location="[in_config(&quot;ADLocation&quot;).ToString]" Objects="[listUsers]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1056.8,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Found &quot; + listUsers.Count.ToString + &quot; user(s) in AD.&quot;]" />
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1056.8,2193.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listUsers]">
-              <ui:ForEach.Body>
-                <ActivityAction x:TypeArguments="x:String">
+            <p:ActiveDirectoryScope ActiveDirectoryServer="{x:Null}" Password="{x:Null}" Username="{x:Null}" DisplayName="Active Directory Scope" sap:VirtualizedContainerService.HintSize="1601,4385" sap2010:WorkflowViewState.IdRef="ActiveDirectoryScope_2">
+              <p:ActiveDirectoryScope.Body>
+                <ActivityAction x:TypeArguments="uas:ActiveDirectoryService">
                   <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                    <DelegateInArgument x:TypeArguments="uas:ActiveDirectoryService" Name="ActiveDirectoryScopeConnectionName" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1021.6,2059.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="sds:SQLiteConnection" Name="oConnection" />
-                      <Variable x:TypeArguments="sd:DataTable" Name="oQueryResult" />
-                      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dictDBUser" />
-                    </Sequence.Variables>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1567,4299" sap2010:WorkflowViewState.IdRef="Sequence_29">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <p:GetObjectProperties SingleProperty="{x:Null}" SinglePropertyValue="{x:Null}" AllProperties="[oUserProps]" DisplayName="AD Get User Details" DistinguishedName="[item]" sap:VirtualizedContainerService.HintSize="980,22.4" sap2010:WorkflowViewState.IdRef="GetObjectProperties_1" />
-                    <Assign DisplayName="Init dictionary to hold the user from AD" sap:VirtualizedContainerService.HintSize="980,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[new Dictionary(Of String, String)]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                    <Assign DisplayName="Assign DN - used to get biz unit" sap:VirtualizedContainerService.HintSize="980,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[sDN]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("distinguishedname"),  oUserProps("distinguishedname").ToString,"")]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="980,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Found AD user with DN: &quot; + sDN]" />
-                    <If Condition="[NOT oUserProps.ContainsKey(&quot;mail&quot;)]" DisplayName="Skip users without email addresses" sap:VirtualizedContainerService.HintSize="980,52.8" sap2010:WorkflowViewState.IdRef="If_4">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Skipped user with DN: &quot; + sDN + &quot; : no email address&quot;]" />
-                          <ui:Continue sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Continue_1" />
-                        </Sequence>
-                      </If.Then>
-                    </If>
-                    <Sequence DisplayName="User from AD into Dict" sap:VirtualizedContainerService.HintSize="980,68.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <InvokeMethod DisplayName="Email to DIctionary" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="Add">
-                        <InvokeMethod.TargetObject>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                        </InvokeMethod.TargetObject>
-                        <InArgument x:TypeArguments="x:String">user_email</InArgument>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("mail"),  oUserProps("mail").ToString,"")]</InArgument>
-                      </InvokeMethod>
-                      <InvokeMethod DisplayName="First Name to DIctionary" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_5" MethodName="Add">
-                        <InvokeMethod.TargetObject>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                        </InvokeMethod.TargetObject>
-                        <InArgument x:TypeArguments="x:String">user_first_name</InArgument>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("givenname"),  oUserProps("givenname").ToString,"")]</InArgument>
-                      </InvokeMethod>
-                      <InvokeMethod DisplayName="Last Name to DIctionary" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_6" MethodName="Add">
-                        <InvokeMethod.TargetObject>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                        </InvokeMethod.TargetObject>
-                        <InArgument x:TypeArguments="x:String">user_last_name</InArgument>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("sn"),  oUserProps("sn").ToString,"")]</InArgument>
-                      </InvokeMethod>
-                      <InvokeMethod DisplayName="Location to DIctionary" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_7" MethodName="Add">
-                        <InvokeMethod.TargetObject>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                        </InvokeMethod.TargetObject>
-                        <InArgument x:TypeArguments="x:String">user_location</InArgument>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("physicaldeliveryofficename"),  oUserProps("physicaldeliveryofficename").ToString,"")]</InArgument>
-                      </InvokeMethod>
-                      <InvokeMethod DisplayName="Department to DIctionary" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="Add">
-                        <InvokeMethod.TargetObject>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                        </InvokeMethod.TargetObject>
-                        <InArgument x:TypeArguments="x:String">user_department</InArgument>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("department"),  oUserProps("department").ToString,"")]</InArgument>
-                      </InvokeMethod>
-                      <InvokeMethod DisplayName="BU to DIctionary" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_9" MethodName="Add">
-                        <InvokeMethod.TargetObject>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                        </InvokeMethod.TargetObject>
-                        <InArgument x:TypeArguments="x:String">user_business_unit</InArgument>
-                        <InArgument x:TypeArguments="x:String">[sDN.Substring(sDN.IndexOf("OU=") + 3, sDN.IndexOf(",",sDN.IndexOf("OU=")) - (sDN.IndexOf("OU=")) - 3 )]</InArgument>
-                      </InvokeMethod>
-                      <InvokeMethod DisplayName="Job Title" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_10" MethodName="Add">
-                        <InvokeMethod.TargetObject>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                        </InvokeMethod.TargetObject>
-                        <InArgument x:TypeArguments="x:String">user_job_title</InArgument>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("title"),  oUserProps("title").ToString,"")]</InArgument>
-                      </InvokeMethod>
-                      <InvokeMethod DisplayName="Run Number" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_11" MethodName="Add">
-                        <InvokeMethod.TargetObject>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                        </InvokeMethod.TargetObject>
-                        <InArgument x:TypeArguments="x:String">seen_in_run</InArgument>
-                        <InArgument x:TypeArguments="x:String">[(nRunNumber + 1).ToString]</InArgument>
-                      </InvokeMethod>
-                    </Sequence>
-                    <Assign DisplayName="Init dictionary to hold DB user" sap:VirtualizedContainerService.HintSize="980,60" sap2010:WorkflowViewState.IdRef="Assign_13">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictDBUser]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[new Dictionary(Of String, String)]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Try to get user from DB" sap:VirtualizedContainerService.HintSize="980,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DBFunctions\GetUser.xaml">
-                      <ui:InvokeWorkflowFile.Arguments>
-                        <OutArgument x:TypeArguments="x:Boolean" x:Key="Found">[bUserFoundInDB]</OutArgument>
-                        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="User">[dictDBUser]</InOutArgument>
-                        <InArgument x:TypeArguments="x:Int32" x:Key="RunNumber">[nRunNumber]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="ConnString">[sConnString]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="UserEmail">[dictADUser("user_email")]</InArgument>
-                      </ui:InvokeWorkflowFile.Arguments>
-                    </ui:InvokeWorkflowFile>
-                    <If Condition="[bUserFoundInDB]" DisplayName="user found in DB?" sap:VirtualizedContainerService.HintSize="980,1141.6" sap2010:WorkflowViewState.IdRef="If_1">
-                      <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="560.8,992" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="519.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Found matching user in database with email: &quot; + dictDBUser(&quot;user_email&quot;) + &quot;.   Updating their run number to &quot; + (nRunNumber+1).ToString]" />
-                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Update the user run # in the DB" sap:VirtualizedContainerService.HintSize="519.2,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="DBFunctions\UpdateUserRunNumber.xaml">
-                            <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="x:Int32" x:Key="RunNumber">[nRunNumber + 1]</InArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="ConnString">[sConnString]</InArgument>
-                              <OutArgument x:TypeArguments="x:Int32" x:Key="RecordsUpdated">[nRecordsUpdated]</OutArgument>
-                              <InArgument x:TypeArguments="x:String" x:Key="UserEmail">[dictADUser("user_email")]</InArgument>
-                            </ui:InvokeWorkflowFile.Arguments>
-                          </ui:InvokeWorkflowFile>
-                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Compare AD user with DB user" sap:VirtualizedContainerService.HintSize="519.2,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="PrepareTransactionData\CompareUsers.xaml">
-                            <ui:InvokeWorkflowFile.Arguments>
-                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="User1">[dictADUser]</InArgument>
-                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="User2">[dictDBUser]</InArgument>
-                              <OutArgument x:TypeArguments="x:Boolean" x:Key="Match">[bUsersSame]</OutArgument>
-                            </ui:InvokeWorkflowFile.Arguments>
-                          </ui:InvokeWorkflowFile>
-                          <If Condition="[Not bUsersSame]" DisplayName="If users differ, add to update list" sap:VirtualizedContainerService.HintSize="519.2,510.4" sap2010:WorkflowViewState.IdRef="If_3">
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1525,91" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Querying AD using &quot; + in_config(&quot;LDAPFilter&quot;).ToString + &quot; at location: &quot; + sADLocation]" />
+                    <p:GetObjectsByLDAPFilter DisplayName="AD Get Users by LDAP Filter" sap:VirtualizedContainerService.HintSize="1525,22" sap2010:WorkflowViewState.IdRef="GetObjectsByLDAPFilter_2" LDAPFilter="[in_config(&quot;LDAPFilter&quot;).ToString]" Location="[sADLocation]" Objects="[listUsers]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1525,91" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Found &quot; + listUsers.Count.ToString + &quot; user(s) in AD at location: &quot; + sADLocation]" />
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1525,3883" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[listUsers]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="x:String">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1489,3750" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="sds:SQLiteConnection" Name="oConnection" />
+                              <Variable x:TypeArguments="sd:DataTable" Name="oQueryResult" />
+                              <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dictDBUser" />
+                            </Sequence.Variables>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If.Then>
-                              <Sequence sap:VirtualizedContainerService.HintSize="375.2,360.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;User with email: &quot; + dictDBUser(&quot;user_email&quot;) + &quot; differed in the DB from AD.  Adding them to update list.&quot;]" />
-                                <InvokeMethod DisplayName="Add user from AD to update list" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_12" MethodName="Add">
-                                  <InvokeMethod.TargetObject>
-                                    <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[lstUsersToUpdate]</InArgument>
-                                  </InvokeMethod.TargetObject>
+                            <p:GetObjectProperties SingleProperty="{x:Null}" SinglePropertyValue="{x:Null}" AllProperties="[oUserProps]" DisplayName="AD Get User Details" DistinguishedName="[item]" sap:VirtualizedContainerService.HintSize="1447,22" sap2010:WorkflowViewState.IdRef="GetObjectProperties_2" />
+                            <Assign DisplayName="Init dictionary to hold the user from AD" sap:VirtualizedContainerService.HintSize="1447,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[new Dictionary(Of String, String)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign DisplayName="Assign DN - used to get biz unit" sap:VirtualizedContainerService.HintSize="1447,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[sDN]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("distinguishedname"),  oUserProps("distinguishedname").ToString,"")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1447,91" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Found AD user with DN: &quot; + sDN]" />
+                            <If Condition="[NOT oUserProps.ContainsKey(&quot;mail&quot;)]" DisplayName="Skip users without email addresses" sap:VirtualizedContainerService.HintSize="1447,51" sap2010:WorkflowViewState.IdRef="If_8">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Skipped user with DN: &quot; + sDN + &quot; : no email address&quot;]" />
+                                  <ui:Continue sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Continue_2" />
+                                </Sequence>
+                              </If.Then>
+                            </If>
+                            <If Condition="[NOT oUserProps.ContainsKey(&quot;physicaldeliveryofficename&quot;)]" DisplayName="provide default location if none in AD" sap:VirtualizedContainerService.HintSize="1447,51" sap2010:WorkflowViewState.IdRef="If_12">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="280,227" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <InvokeMethod DisplayName="Default Location" sap:VirtualizedContainerService.HintSize="238,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_30" MethodName="Add">
+                                    <InvokeMethod.TargetObject>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[oUserProps]</InArgument>
+                                    </InvokeMethod.TargetObject>
+                                    <InArgument x:TypeArguments="x:String">physicaldeliveryofficename</InArgument>
+                                    <InArgument x:TypeArguments="x:String">[in_config("DefaultLocationIfNone").ToString]</InArgument>
+                                  </InvokeMethod>
+                                </Sequence>
+                              </If.Then>
+                            </If>
+                            <Sequence DisplayName="User from AD into Dict" sap:VirtualizedContainerService.HintSize="1447,1448" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <InvokeMethod DisplayName="Email to DIctionary" sap:VirtualizedContainerService.HintSize="238,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_19" MethodName="Add">
+                                <InvokeMethod.TargetObject>
                                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                                </InvokeMethod>
-                              </Sequence>
-                            </If.Then>
-                          </If>
-                        </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence sap:VirtualizedContainerService.HintSize="375.2,360.8" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;AD user with email: &quot; + dictADUser(&quot;user_email&quot;) + &quot; not found in DB.  Adding them to create list.&quot;]" />
-                          <InvokeMethod DisplayName="Add user from AD to create list" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Add">
-                            <InvokeMethod.TargetObject>
-                              <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[lstUsersToCreate]</InArgument>
-                            </InvokeMethod.TargetObject>
-                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
-                          </InvokeMethod>
-                        </Sequence>
-                      </If.Else>
-                    </If>
+                                </InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="x:String">user_email</InArgument>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("mail"),  oUserProps("mail").ToString,"")]</InArgument>
+                              </InvokeMethod>
+                              <InvokeMethod DisplayName="First Name to DIctionary" sap:VirtualizedContainerService.HintSize="238,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_20" MethodName="Add">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                </InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="x:String">user_first_name</InArgument>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("givenname"),  oUserProps("givenname").ToString,"")]</InArgument>
+                              </InvokeMethod>
+                              <InvokeMethod DisplayName="Last Name to DIctionary" sap:VirtualizedContainerService.HintSize="238,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_21" MethodName="Add">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                </InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="x:String">user_last_name</InArgument>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("sn"),  oUserProps("sn").ToString,"")]</InArgument>
+                              </InvokeMethod>
+                              <InvokeMethod DisplayName="Location to DIctionary" sap:VirtualizedContainerService.HintSize="238,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_22" MethodName="Add">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                </InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="x:String">user_location</InArgument>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("physicaldeliveryofficename"),  oUserProps("physicaldeliveryofficename").ToString,"")]</InArgument>
+                              </InvokeMethod>
+                              <InvokeMethod DisplayName="Department to DIctionary" sap:VirtualizedContainerService.HintSize="238,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_23" MethodName="Add">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                </InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="x:String">user_department</InArgument>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("department"),  oUserProps("department").ToString,"")]</InArgument>
+                              </InvokeMethod>
+                              <InvokeMethod DisplayName="BU to DIctionary" sap:VirtualizedContainerService.HintSize="238,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_24" MethodName="Add">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                </InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="x:String">user_business_unit</InArgument>
+                                <InArgument x:TypeArguments="x:String">[sDN.Substring(sDN.IndexOf("OU=") + 3, sDN.IndexOf(",",sDN.IndexOf("OU=")) - (sDN.IndexOf("OU=")) - 3 )]</InArgument>
+                              </InvokeMethod>
+                              <InvokeMethod DisplayName="Job Title" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_25" MethodName="Add">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                </InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="x:String">user_job_title</InArgument>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">[If (oUserProps.ContainsKey("title"),  oUserProps("title").ToString,"")]</InArgument>
+                              </InvokeMethod>
+                              <InvokeMethod DisplayName="Run Number" sap:VirtualizedContainerService.HintSize="236.8,135.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_26" MethodName="Add">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                </InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="x:String">seen_in_run</InArgument>
+                                <InArgument x:TypeArguments="x:String">[(nRunNumber + 1).ToString]</InArgument>
+                              </InvokeMethod>
+                            </Sequence>
+                            <If Condition="[nRunNumber = 1]" DisplayName="First run everybody's a create" sap:VirtualizedContainerService.HintSize="1447,1595" sap2010:WorkflowViewState.IdRef="If_11">
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="376,358" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;AD user with email: &quot; + dictADUser(&quot;user_email&quot;) + &quot; is added to the create list because this is the first run.&quot;]" />
+                                  <InvokeMethod DisplayName="Add user from AD to create list" sap:VirtualizedContainerService.HintSize="334,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_27" MethodName="Add">
+                                    <InvokeMethod.TargetObject>
+                                      <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[lstUsersToCreate]</InArgument>
+                                    </InvokeMethod.TargetObject>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                  </InvokeMethod>
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence sap:VirtualizedContainerService.HintSize="1026,1448" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign DisplayName="Init dictionary to hold DB user" sap:VirtualizedContainerService.HintSize="984,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictDBUser]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[new Dictionary(Of String, String)]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Try to get user from DB" sap:VirtualizedContainerService.HintSize="984,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="DBFunctions\GetUser.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="Found">[bUserFoundInDB]</OutArgument>
+                                      <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="User">[dictDBUser]</InOutArgument>
+                                      <InArgument x:TypeArguments="x:Int32" x:Key="RunNumber">[nRunNumber]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="ConnString">[sConnString]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="UserEmail">[dictADUser("user_email")]</InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                  </ui:InvokeWorkflowFile>
+                                  <If Condition="[bUserFoundInDB]" DisplayName="user found in DB?" sap:VirtualizedContainerService.HintSize="984,1129" sap2010:WorkflowViewState.IdRef="If_10">
+                                    <If.Then>
+                                      <Sequence sap:VirtualizedContainerService.HintSize="563,982" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="521,91" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;Found matching user in database with email: &quot; + dictDBUser(&quot;user_email&quot;) + &quot;.   Updating their run number to &quot; + (nRunNumber+1).ToString]" />
+                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Update the user run # in the DB" sap:VirtualizedContainerService.HintSize="521,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="DBFunctions\UpdateUserRunNumber.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="x:Int32" x:Key="RunNumber">[nRunNumber + 1]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="ConnString">[sConnString]</InArgument>
+                                            <OutArgument x:TypeArguments="x:Int32" x:Key="RecordsUpdated">[nRecordsUpdated]</OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="UserEmail">[dictADUser("user_email")]</InArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Compare AD user with DB user" sap:VirtualizedContainerService.HintSize="521,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="PrepareTransactionData\CompareUsers.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="User1">[dictADUser]</InArgument>
+                                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="User2">[dictDBUser]</InArgument>
+                                            <OutArgument x:TypeArguments="x:Boolean" x:Key="Match">[bUsersSame]</OutArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                        <If Condition="[Not bUsersSame]" DisplayName="If users differ, add to update list" sap:VirtualizedContainerService.HintSize="521,505" sap2010:WorkflowViewState.IdRef="If_9">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If.Then>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="376,358" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;User with email: &quot; + dictDBUser(&quot;user_email&quot;) + &quot; differed in the DB from AD.  Adding them to update list.&quot;]" />
+                                              <InvokeMethod DisplayName="Add user from AD to update list" sap:VirtualizedContainerService.HintSize="334,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_28" MethodName="Add">
+                                                <InvokeMethod.TargetObject>
+                                                  <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[lstUsersToUpdate]</InArgument>
+                                                </InvokeMethod.TargetObject>
+                                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                              </InvokeMethod>
+                                            </Sequence>
+                                          </If.Then>
+                                        </If>
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence sap:VirtualizedContainerService.HintSize="376,358" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;AD user with email: &quot; + dictADUser(&quot;user_email&quot;) + &quot; not found in DB.  Adding them to create list.&quot;]" />
+                                        <InvokeMethod DisplayName="Add user from AD to create list" sap:VirtualizedContainerService.HintSize="334,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_29" MethodName="Add">
+                                          <InvokeMethod.TargetObject>
+                                            <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))">[lstUsersToCreate]</InArgument>
+                                          </InvokeMethod.TargetObject>
+                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictADUser]</InArgument>
+                                        </InvokeMethod>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                    </ui:ForEach>
                   </Sequence>
                 </ActivityAction>
-              </ui:ForEach.Body>
-            </ui:ForEach>
+              </p:ActiveDirectoryScope.Body>
+            </p:ActiveDirectoryScope>
           </Sequence>
         </ActivityAction>
-      </p:ActiveDirectoryScope.Body>
-    </p:ActiveDirectoryScope>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get Users to be Deleted" sap:VirtualizedContainerService.HintSize="1132,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="DBFunctions\GetUsersByRunNumber.xaml">
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Get Users to be Deleted" sap:VirtualizedContainerService.HintSize="1679,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="DBFunctions\GetUsersByRunNumber.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:Int32" x:Key="RunNumber">[nRunNumber]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="ConnString">[sConnString]</InArgument>
@@ -403,8 +479,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1132,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Found &quot; + lstUsersToDelete.Count.ToString + &quot; user(s) to delete.&quot;]" />
-    <InvokeMethod DisplayName="Add Create List" sap:VirtualizedContainerService.HintSize="1132,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_13" MethodName="Add">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1679,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Found &quot; + lstUsersToDelete.Count.ToString + &quot; user(s) to delete.&quot;]" />
+    <InvokeMethod DisplayName="Add Create List" sap:VirtualizedContainerService.HintSize="1679,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_13" MethodName="Add">
       <InvokeMethod.TargetObject>
         <InArgument x:TypeArguments="scg:List(scg:List(scg:Dictionary(x:String, x:String)))">[out_lstCRUD]</InArgument>
       </InvokeMethod.TargetObject>
