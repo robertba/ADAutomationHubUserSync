@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>498.4,1050.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1629,1141</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetRunNumber_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -69,9 +69,11 @@
       <AssemblyReference>ActiproSoftware.Text.LLParser.Wpf</AssemblyReference>
       <AssemblyReference>ActiproSoftware.DataGrid.Contrib.Wpf</AssemblyReference>
       <AssemblyReference>ActiproSoftware.Wizard.Wpf</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Update User" sap:VirtualizedContainerService.HintSize="478.4,950.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Update User" sap:VirtualizedContainerService.HintSize="480,1076" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sds:SQLiteConnection" Name="oSLConnection" />
       <Variable x:TypeArguments="sds:SQLiteCommand" Name="oSLCommand" />
@@ -81,9 +83,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,857.6" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,984" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="304,626.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,757" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="variable1" />
           </Sequence.Variables>
@@ -92,7 +94,8 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Init DB connection object" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Beginning the update user routine&quot;]" />
+          <Assign DisplayName="Init DB connection object" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="sds:SQLiteConnection">[oSLConnection]</OutArgument>
             </Assign.To>
@@ -100,12 +103,12 @@
               <InArgument x:TypeArguments="sds:SQLiteConnection">[new SQLiteConnection(ConnString)]</InArgument>
             </Assign.Value>
           </Assign>
-          <InvokeMethod DisplayName="Open DB Connection" sap:VirtualizedContainerService.HintSize="262.4,133.6" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Open">
+          <InvokeMethod DisplayName="Open DB Connection" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Open">
             <InvokeMethod.TargetObject>
               <InArgument x:TypeArguments="sds:SQLiteConnection">[oSLConnection]</InArgument>
             </InvokeMethod.TargetObject>
           </InvokeMethod>
-          <Assign DisplayName="Init DB command object" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign DisplayName="Init DB command object" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="sds:SQLiteCommand">[oSLCommand]</OutArgument>
             </Assign.To>
@@ -113,7 +116,7 @@
               <InArgument x:TypeArguments="sds:SQLiteCommand">[new SQLiteCommand(oSLConnection)]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[oSLCommand.CommandText]</OutArgument>
             </Assign.To>
@@ -121,7 +124,7 @@
               <InArgument x:TypeArguments="x:String">["UPDATE Users SET user_first_name = '" + User("user_first_name") + "', user_last_name = '" + User("user_last_name") + "', user_location = '" + User("user_location") + "', user_department = '" + User("user_department") + "', user_business_unit = '" + User("user_business_unit") + "', user_job_title = '" + User("user_job_title") + "', seen_in_run = '" + User("seen_in_run") + "' WHERE user_email = '" + User("user_email") + "'"]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[RecordsUpdated]</OutArgument>
             </Assign.To>
@@ -132,7 +135,7 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -143,7 +146,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="375.2,248" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence sap:VirtualizedContainerService.HintSize="376,247" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
